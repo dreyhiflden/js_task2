@@ -25,6 +25,10 @@ function game() {
     alert('Ошибка, введите корректное 4х значное число (пример: 4123)');
     return;
   }
+  else if (userType.match(/\D+/g)) {
+    alert('Вы ошибочно ввели вместо числа букву, нужно число!');
+    return;
+  }
 
   let arrUserType = userType.split('').map(item => parseInt(item, 10));
 
