@@ -1,12 +1,10 @@
 "use strict";
 
 function rle(source) {
-
   let str = '',
       count = 1;
 
   for (let i = 0; i < source.length; i++) {
-
     if ((source[i] === source[i + 1])) {
       count++;
       continue;
@@ -14,11 +12,8 @@ function rle(source) {
 
     str += ((count !== 1) ? source[i] + count : source[i]);
     count = 1;
-
   }
-
   return str;
-
 }
 
 
@@ -29,3 +24,4 @@ console.assert(
   convertedString === expectedString,
   `${convertedString} is not equal to expected ${expectedString}`
 );
+/* TODO: Don't forget about new line at the end of the file*/
