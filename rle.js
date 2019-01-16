@@ -5,17 +5,16 @@ function rle(source) {
       count = 1;
 
   for (let i = 0; i < source.length; i++) {
-    if ((source[i] === source[i + 1])) {
+    if (source[i] === source[i + 1]) {
       count++;
       continue;
     }
 
-    str += ((count !== 1) ? source[i] + count : source[i]);
+    str += count !== 1 ? source[i] + count : source[i];
     count = 1;
   }
   return str;
 }
-
 
 let convertedString = rle('AVVVBBBVVXDHJFFFFDDDDDDHAAAAJJJDDSLSSSDDDD');
 let expectedString = 'AV3B3V2XDHJF4D6HA4J3D2SLS3D4';
