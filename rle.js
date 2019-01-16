@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function rle(source) {
   let str = '',
