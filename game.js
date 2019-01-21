@@ -3,18 +3,13 @@ btn.addEventListener('click', game);
 
 const duplicateRegEx = /(.)\1+/g;
 
-function getRandomArray() {
-  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  let getRandomNumber = () => {
-    return Math.floor(Math.random() * 10);
-  };
-
-  while (arr.length >= 5) {
-    arr.splice(getRandomNumber(), 1);
+function generateRandomArr (arr) {
+  if (arr.length >= 4) return;
+  let newNumber = Math.floor(Math.random() * 10);
+  if (arr.indexOf(newNumber) < 0) {
+    arr.push(newNumber);
   }
-
-  return arr;
+  generateRandomArr(arr);
 }
 
 function getUserNumber() {
@@ -37,7 +32,9 @@ function getUserNumber() {
 function game() {
   let bull = 0,
     cow = 0,
-    arr = getRandomArray();
+    arr = [];
+
+  generateRandomArr(arr);
 
   let compareArrays = (arr1, arr2) => {
     for (let i = 0; i < arr1.length; i++) {
@@ -57,6 +54,7 @@ function game() {
       return;
     }
     compareArrays(arr, userType);
+
     if (bull === 4) {
       continue;
     }
