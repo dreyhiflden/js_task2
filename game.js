@@ -4,10 +4,10 @@ btn.addEventListener('click', game);
 const duplicateRegEx = /(.)\1+/g;
 
 function getRandomArray() {
-  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   let getRandomNumber = () => {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 11);
   };
 
   while (arr.length >= 5) {
@@ -25,12 +25,9 @@ function getUserNumber() {
     return duplicateRegEx.test(sortedString);
   };
 
-  if (userType === null || userType === '' || userType.length !== 4 || isRepeated(userType))
+  if (userType === null || userType.match(/\D+/g) || userType.length !== 4 || isRepeated(userType))
   {
     alert('Ошибка, введите корректное 4х значное число (пример: 4123)');
-    return;
-  } else if (userType.match(/\D+/g)) {
-    alert('Вы ошибочно ввели вместо числа букву, нужно число!');
     return;
   }
 
@@ -56,6 +53,9 @@ function game() {
     cow = 0;
 
     let userType = getUserNumber();
+    if (!userType) {
+      return;
+    }
     compareArrays(arr, userType);
     if (bull === 4) {
       continue;
