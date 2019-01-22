@@ -3,8 +3,10 @@ btn.addEventListener('click', game);
 
 const duplicateRegEx = /(.)\1+/g;
 
-function generateRandomArr (arr) {
-  if (arr.length >= 4) return;
+function generateRandomArr(arr) {
+  if (arr.length >= 4) {
+    return;
+  }
   let newNumber = Math.floor(Math.random() * 10);
   if (arr.indexOf(newNumber) < 0) {
     arr.push(newNumber);
