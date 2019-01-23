@@ -3,8 +3,10 @@ btn.addEventListener('click', game);
 
 const duplicateRegEx = /(.)\1+/g;
 
-function generateRandomArr (arr) {
-  if (arr.length >= 4) return;
+function generateRandomArr(arr) {
+  if (arr.length >= 4) {
+    return;
+  }
   let newNumber = Math.floor(Math.random() * 10);
   if (arr.indexOf(newNumber) < 0) {
     arr.push(newNumber);
@@ -20,8 +22,11 @@ function getUserNumber() {
     return duplicateRegEx.test(sortedString);
   };
 
-  if (userType === null || userType.match(/\D+/g) || userType.length !== 4 || isRepeated(userType))
-  {
+  if (userType === null
+    || userType.match(/\D+/g)
+    || userType.length !== 4
+    || isRepeated(userType)
+  ) {
     alert('Ошибка, введите корректное 4х значное число (пример: 4123)');
     return;
   }
