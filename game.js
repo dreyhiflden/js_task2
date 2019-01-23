@@ -22,8 +22,11 @@ function getUserNumber() {
     return duplicateRegEx.test(sortedString);
   };
 
-  if (userType === null || userType.match(/\D+/g) || userType.length !== 4 || isRepeated(userType))
-  {
+  if (userType === null
+    || userType.match(/\D+/g)
+    || userType.length !== 4
+    || isRepeated(userType)
+  ) {
     alert('Ошибка, введите корректное 4х значное число (пример: 4123)');
     return;
   }
